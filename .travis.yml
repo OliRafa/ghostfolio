@@ -3,12 +3,6 @@ git:
   depth: false
 node_js:
   - 14
-before_script:
-  - yarn
-script:
-  - yarn format:check
-  - yarn test
-  - yarn build:all
 
 cache:
   directories:
