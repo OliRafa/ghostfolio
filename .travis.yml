@@ -29,4 +29,4 @@ deploy:
   script: ./publish-docker-image.sh
   on:
     tags: true
-    condition: branch = feature/travis-test AND type = push AND tag IS present
+    condition: $TRAVIS_BRANCH =~ ^(main|feature/travis-test)$
