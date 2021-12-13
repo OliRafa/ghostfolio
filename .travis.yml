@@ -9,3 +9,21 @@ script:
   - yarn format:check
   - yarn test
   - yarn build:all
+
+cache:
+  directories:
+    - node_modules
+
+jobs:
+  include:
+    - stage: downlod dependencies
+      script: yarn
+    - stage: check formatting
+      script: yarn format:check
+    - stage: execute tests
+      script: yarn test
+    - stage: build
+      script: yarn build:all
+    - stage: build and push docker images
+      if: branch = feature/travis-test AND type = push AND tag IS present
+      script: ./publish-docker-image.sh
