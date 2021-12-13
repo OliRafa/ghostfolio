@@ -8,7 +8,7 @@ cache:
   directories:
     - node_modules
 
-if: (type = pull_request) OR (branch = feature/travis-test AND type = push AND tag IS present)
+if: (type = pull_request) OR (branch = feature/travis-test AND tag IS present)
 
 jobs:
   include:
