@@ -17,12 +17,16 @@ cache:
 jobs:
   include:
     - stage: downlod dependencies
+      if: type = pull_request
       script: yarn
     - stage: check formatting
+      if: type = pull_request
       script: yarn format:check
     - stage: execute tests
+      if: type = pull_request
       script: yarn test
     - stage: build
+      if: type = pull_request
       script: yarn build:all
     - stage: build and push docker images
       if: branch = feature/travis-test AND type = push AND tag IS present
