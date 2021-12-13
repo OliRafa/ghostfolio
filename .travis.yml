@@ -4,6 +4,9 @@ git:
 node_js:
   - 14
 
+services:
+  - docker
+
 cache:
   directories:
     - node_modules
